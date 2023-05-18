@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Quad {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the value of a: ");
+        int a = scanner.nextInt();
+        
+        System.out.print("Enter the value of b: ");
+        int b = scanner.nextInt();
+        
+        System.out.print("Enter the value of c: ");
+        int c = scanner.nextInt();
+        
+        int determinant = (b * b - (4 * a * c));
+        double root1, root2;
+        
+        if (determinant == 0) {
+            root1 = root2 = -b / (2 * a);
+            System.out.format("Root1 = Root2 = %.2f%n", root1);
+        } else if (determinant > 0) {
+            root1 = (-b + Math.sqrt(determinant)) / (2 * a);
+            root2 = (-b - Math.sqrt(determinant)) / (2 * a);
+            System.out.format("Root1 = %.2f%n", root1);
+            System.out.format("Root2 = %.2f%n", root2);
+        } else {
+            double real = -b / (2 * a);
+            double imaginary = Math.sqrt(-determinant) / (2 * a);
+            System.out.format("Root1 = %.2f+%.2fi%n", real, imaginary);
+            System.out.format("Root2 = %.2f-%.2fi%n", real, imaginary);
+        }
+        
+        scanner.close();
+    }
+}
